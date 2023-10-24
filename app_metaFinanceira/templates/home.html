@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Financeira</title>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light" style="padding-left: 10px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="font-size: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+          <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+          <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+        </svg>
+        Calculadora de Meta Financeira
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Qual a sua meta?</h1>
+    <p>Use nosso aplicativo para definir suas metas e descubra em quanto tempo irá atingi-la.</p>
+  </div>
+
+  <section class="container" name="formulario_metas">
+    <form method="post" action="{% url 'calcular' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="objetivo" class="form-label">Qual a seu objetivo?</label>
+        <input type="text" class="form-control" name="objetivo" id="objetivo">
+      </div>
+      <div class="mb-3">
+        <label for="meta" class="form-label">Qual o valor necessário para este objetivo?</label>
+        <input type="text" class="form-control" name="meta" id="meta">
+      </div>
+      <div class="mb-3">
+        <label for="valorMensal" class="form-label">Qual o valor você pode guardar por mês?</label>
+        <input type="text" class="form-control" name="valorMensal" id="valorMensal">
+      </div>
+      <button type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+    {% if resultado %}
+    <div>
+      Resultado: {{ resultado }} Meses
+    </div>
+    {% endif %}
+  </section>
+  
+  
+</body>
+</html>
