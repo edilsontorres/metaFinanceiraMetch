@@ -9,7 +9,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meta Financeira</title>
-  <script src="views.py"></script>
 </head>
 
 <body>
@@ -40,7 +39,7 @@
         </div>
         <div class="mb-3">
           <label for="meta" class="form-label">Qual o valor necessário para este objetivo?</label>
-          <input type="text" class="form-control" name="meta" id="meta" oninput="maskCurrency()" required>
+          <input type="text" class="form-control" placeholder="R$00,00" name="meta" id="meta" required>
           <div class="invalid-feedback">
             Informe o valor final 
           </div>
@@ -92,8 +91,13 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous">
   </script>
-  <script src="{% static 'js/formValidation' %}"></script>
+  <script src="{% static 'js/formValidation.js' %}"></script>
+  <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+  <script src="{% static 'jquery.mask.min.js' %}"></script>
+  <script>
+    $(document).ready(function(){
+      $("#meta").mask("#.##0,00", {reverse: true});
+    })
+  </script>
 </body>
-
-
 </html>
