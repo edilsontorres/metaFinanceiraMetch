@@ -1,21 +1,27 @@
 from django.shortcuts import render
-from decimal import Decimal
 
 def home(request):
     return render(request, 'home.html')
 
 def calcular(request):
-    #meta = float(request.POST.get('meta'))
-    meta = str(request.POST.get('meta'))
-    teste = meta.replace('.','').replace(',','.')
-    teste2 = float(teste)
-    valorMensal = float(request.POST.get('valorMensal',0))
-    resultado = int(teste2 / valorMensal)
+    n1 = request.POST.get('meta')
+    meta = formatarEntradas(n1)
 
-    return render(request, 'home.html', {'resultado': formatarResultado(resultado), 'meta': formatarEntradas(teste2),
-                                          'valorMensal': formatarEntradas(valorMensal)})
+    n2 = request.POST.get('valorMensal')
+    valorMensal = formatarEntradas(n2)
+
+    resultado = int(meta / valorMensal)
+
+    return render(request, 'home.html', {'resultado': formatarResultado(resultado), 'meta': formatarSaidas(meta),
+                                          'valorMensal': formatarSaidas(valorMensal)})
+
 
 def formatarEntradas(n):
+    numero = str(n)
+    resultadoFormatado = float(numero.replace('R$', '').replace('.','').replace(',','.'))
+    return resultadoFormatado
+
+def formatarSaidas(n):
     numero = f'{n:_.2f}'
     resultado = numero.replace('.', ',').replace('_', '.')
     return resultado

@@ -39,7 +39,7 @@
         </div>
         <div class="mb-3">
           <label for="meta" class="form-label">Qual o valor necessário para este objetivo?</label>
-          <input type="text" class="form-control" placeholder="R$00,00" name="meta" id="meta" required>
+          <input type="text" class="form-control" name="meta" id="meta" required>
           <div class="invalid-feedback">
             Informe o valor final 
           </div>
@@ -93,10 +93,11 @@
   </script>
   <script src="{% static 'js/formValidation.js' %}"></script>
   <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
-  <script src="{% static 'jquery.mask.min.js' %}"></script>
+  <script src="{% static 'jquery.maskMoney.min.js' %}"></script>
   <script>
-    $(document).ready(function(){
-      $("#meta").mask("#.##0,00", {reverse: true});
+    $(function(){
+      $("#meta").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: true});
+      $("#valorMensal").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: true});
     })
   </script>
 </body>
