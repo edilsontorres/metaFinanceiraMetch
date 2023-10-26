@@ -28,8 +28,13 @@ def formatarSaidas(n):
 
 def formatarResultado(resultado):
     if(resultado > 12):
-        r = resultado / 12
-        resposta = f'{round(r)} Anos'
+        r = resultado // 12
+        resto = resultado % 12
+        if(resto <= 11):
+            resto // 12
+            respostaMeses = f'{resto} meses'
+
+        resposta = f'{round(r)} anos e {respostaMeses}'
         return resposta
 
     if(resultado == 12):
