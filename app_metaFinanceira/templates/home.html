@@ -23,7 +23,7 @@
 
   <section>
     <div class="container">
-      <h1>Qual a sua meta?</h1>
+      <h1>Calculadora Meta Financeira Match!</h1>
       <p>Use nosso aplicativo para definir suas metas e descubra em quanto tempo irá atingi-la.</p>
     </div>
 
@@ -31,27 +31,28 @@
       <form method="post" action="{% url 'calcular' %}" class="needs-validation" novalidate>
         {% csrf_token %}
         <div class="mb-3">
-          <label for="objetivo" class="form-label">Qual a seu objetivo?</label>
+          <label for="objetivo" class="form-label">Qual é o seu objetivo?</label>
           <input type="text" class="form-control" name="objetivo" id="objetivo" required>
           <div class="invalid-feedback">
             Informe seu objetivo
           </div>
         </div>
         <div class="mb-3">
-          <label for="meta" class="form-label">Qual o valor necessário para este objetivo?</label>
+          <label for="meta" class="form-label">Valor final?</label>
           <input type="text" class="form-control" name="meta" id="meta" required>
           <div class="invalid-feedback">
             Informe o valor final 
           </div>
         </div>
         <div class="mb-3">
-          <label for="valorMensal" class="form-label">Qual o valor você pode guardar por mês?</label>
+          <label for="valorMensal" class="form-label">Valor mensal?</label>
           <input type="text" class="form-control" name="valorMensal" id="valorMensal" required>
           <div class="invalid-feedback">
             Informe quanto você pode poupar por mês
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Calcular</button>
+        <button type="button" class="btn btn-secondary" onclick="limparForm()">Limpar</button>
       </form>
     </div>
   </section>
@@ -92,6 +93,7 @@
     crossorigin="anonymous">
   </script>
   <script src="{% static 'js/formValidation.js' %}"></script>
+  <script src="{% static 'js/limparCampos.js' %}"></script>
   <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
   <script src="{% static 'jquery.maskMoney.min.js' %}"></script>
   <script>
