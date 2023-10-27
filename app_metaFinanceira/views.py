@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from math import ceil
 
 def home(request):
     return render(request, 'home.html')
@@ -27,19 +28,19 @@ def formatarSaidas(n):
     return resultado
 
 def formatarResultado(resultado):
-    if(resultado > 12):
-        r = resultado // 12
-        resto = resultado % 12
-        if(resto <= 11):
-            resto // 12
-            respostaMeses = f'{resto} meses'
-
-        resposta = f'{round(r)} anos e {respostaMeses}'
-        return resposta
-
-    if(resultado == 12):
-        return  f'1 Ano'
-
+    resultadoObtido = resultado // 12
+    resto = resultado % 12
+    
+    if(resultado > 12 and resto):
+        if(resultadoObtido == 1 and resto <= 1):
+            return f'{ceil(resultadoObtido)} ano e {ceil(resto)} mês'
+        
+        if(resultadoObtido == 1 and resto > 1):
+            return f'{ceil(resultadoObtido)} ano e {ceil(resto)} meses'
+        
+        return f'{ceil(resultadoObtido)} anos e {ceil(resto)} meses'
+    elif(resultado == 1):
+        return f'{resultado} mês'
     else:
-        resposta = f'{resultado} Meses'
-        return resposta
+        return f'{resultadoObtido} meses'
+    
