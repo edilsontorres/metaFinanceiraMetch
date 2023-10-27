@@ -35,12 +35,17 @@ def formatarResultado(resultado):
         if(resultadoObtido == 1 and resto <= 1):
             return f'{round(resultadoObtido)} ano e {(resto)} mês'
         
+        if(resultadoObtido > 1 and resto <= 1):
+            return f'{round(resultadoObtido)} anos e {(resto)} mês'
+        
         if(resultadoObtido == 1 and resto > 1):
             return f'{round(resultadoObtido)} ano e {(resto)} meses'
         
         return f'{round(resultadoObtido)} anos e {(resto)} meses'
+    
     elif(resultado == 1):
         return f'{resultado} mês'
+    
     else:
         return f'{resultadoObtido} meses'
     
