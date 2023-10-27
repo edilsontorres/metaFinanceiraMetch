@@ -46,5 +46,5 @@ def formatarResultado(resultado):
         return f'{resultado} mês'
     
     else:
-        return f'{resultadoObtido} meses'
+        return f'{resultado} meses'
     
