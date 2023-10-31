@@ -22,73 +22,74 @@
   </nav>
 
   <section>
-    <div class="container">
-      <h1>Calculadora Meta Financeira Match!</h1>
-      <p>Use nosso aplicativo para definir suas metas e descubra em quanto tempo irá atingi-la.</p>
+    <div class="container-fluid col-md-10">
+      <div class="offset-md-3">
+        <h1>Calculadora Meta Financeira Match!</h1>
+      </div>
     </div>
 
     <div class="container" name="formulario_metas">
       <form method="post" action="{% url 'calcular' %}" class="needs-validation" novalidate>
         {% csrf_token %}
-        <div class="col-4">
-          <div class="mb-3">
-            <label for="objetivo" class="form-label">Qual é o seu objetivo?</label>
-            <input type="text" class="form-control" name="objetivo" id="objetivo" required>
-            <div class="invalid-feedback">
-              Informe seu objetivo
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="meta" class="form-label">Valor final?</label>
-            <input type="text" class="form-control" name="meta" id="meta" required>
-            <div class="invalid-feedback">
-              Informe o valor final
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="valorMensal" class="form-label">Valor mensal?</label>
-            <input type="text" class="form-control" name="valorMensal" id="valorMensal" required>
-            <div class="invalid-feedback">
-              Informe quanto você pode poupar por mês
-            </div>
+        <div class="col-md-4 offset-md-3">
+          <label for="objetivo" class="form-label">Qual é o seu objetivo?</label>
+          <input type="text" class="form-control" name="objetivo" id="objetivo" required>
+          <div class="invalid-feedback">
+            Informe seu objetivo
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Calcular</button>
-        <button type="button" class="btn btn-secondary" onclick="limparForm()">Limpar</button>
+        <div class="col-md-4 offset-md-3">
+          <label for="meta" class="form-label">Valor final?</label>
+          <input type="text" class="form-control" name="meta" id="meta" required>
+          <div class="invalid-feedback">
+            Informe o valor final
+          </div>
+        </div>
+        <div class="col-md-4 offset-md-3">
+          <label for="valorMensal" class="form-label">Valor mensal?</label>
+          <input type="text" class="form-control" name="valorMensal" id="valorMensal" required>
+          <div class="invalid-feedback">
+            Informe quanto você pode poupar por mês
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary">Calcular</button>
+          <button type="button" class="btn btn-secondary" onclick="limparForm()">Limpar</button>
+        </div>
       </form>
     </div>
   </section>
   <br />
   {% if resultado %}
-  <section class="container">
-    <h2>Resultado:</h2>
-
-    <table class="table table-bordered">
-      <thead>
-        <tr class="table-secondary">
-          <th>Descrição</th>
-          <th>Valores</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Objetivo Final</td>
-          <td>R${{ meta }}</td>
-        </tr>
-        <tr>
-          <td>Tempo estimado</td>
-          <td>{{ resultado }}</td>
-        </tr>
-        <tr>
-          <td>Valor mensal</td>
-          <td>R${{ valorMensal }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="/" class="btn btn-success">Novo cálculo</a>
-  </section>
-
+  <div class="container">
+    <div class="col-4 offset-md-3">
+      <h2>Resultado:</h2><br />
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr class="table-dark">
+            <th>Descrição</th>
+            <th>Valores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Objetivo Final</td>
+            <td>R${{ meta }}</td>
+          </tr>
+          <tr>
+            <td>Tempo estimado</td>
+            <td>{{ resultado }}</td>
+          </tr>
+          <tr>
+            <td>Valor mensal</td>
+            <td>R${{ valorMensal }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/" class="btn btn-success">Novo cálculo</a>
+    </div>
+  </div>
   {% endif %}
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
