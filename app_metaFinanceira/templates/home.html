@@ -56,16 +56,16 @@
           {% csrf_token %}
           <div>
             <label class="label-form-results" for="objetivo">Valor Final:</label>
-            <input class="input-form-results" value="R${{ meta }}" type="text" name="objetivo" id="objetivo" disabled>
+            <input class="input-form-results" value="{{meta}}" type="text" name="objetivo" disabled>
           </div>
           <div>
             <label class="label-form-results" for="meta">Valor mensal:</label>
-            <input class="input-form-results" value="R${{ valorMensal }}" type="text" name="meta" id="meta" disabled>
+            <input class="input-form-results" value="{{ valorMensal }}" type="text" name="meta" disabled>
           </div>
           <div>
             <label class="label-form-results" for="valorMensal">Tempo estimado:</label>
-            <input class="input-form-results" value="{{ resultado }}" type="text" name="valorMensal" id="valorMensal" disabled>
-            <br /><br /><br />
+            <input class="input-form-results" value="{{ resultado }}" type="text" name="valorMensal" disabled>
+            <br /><br />
             <a href="/" class="novo-calculo">Novo cálculo</a>
           </div>
         </form>

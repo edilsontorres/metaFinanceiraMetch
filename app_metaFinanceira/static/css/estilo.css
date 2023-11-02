@@ -1,6 +1,7 @@
 body {
     background-color: #FFC687;
-}
+    font-family: 'Poppins', sans-serif;
+} 
 
 .container {
     display: flex;
@@ -10,47 +11,47 @@ body {
     
 }
 
-.container-form{
-    display: flex;
+.container-form, 
+.container-results {
+    display:block;
     align-items:center;
     justify-content: center;
-    flex-direction: column;
-    height: 90vh;
+    height: 70vh;
     background-color: #FFFFFF;
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
+    border-radius: 8px 0px 0px 8px;
 }
 
-.container-results {
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    flex-direction: column;
-    height: 90vh;
+.container-results { 
     width: 20%;
     background-color: #000000;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-}
+    border-radius: 0px 8px 8px 0px;
+} 
 
-.container-title-form {
+.container-title-form, 
+.container-title-results {
     width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content:center;
-    padding: 30px;
-    margin-bottom: 20px;
 }
 
-.title-form-area {
+.container-title-results {
+    color: #FFFFFF;
+}
+
+.title-form-area,
+.title-results-area {
     display: flex;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
     background-color: #FFFFFF;
+    padding: 0px 20px 0px 20px;
 }
 span {
     color: #FFC687;
+}
+.title-results-area {
+    background-color: #000000;
 }
 
 .form-area {
@@ -73,96 +74,19 @@ span {
     padding-left: 20%;
 }
 
-.label-form {
-    background-color: #FFFFFF;
-    display: flex;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.input-form {
-    height: 20px;
-    border-bottom-color: #C5C3C3;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    padding: 5px;
-    padding-left: 8px;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    outline: 0;   
-}
-
-.calcular {
-    padding: 8px;
-    border-radius: 4px;
-    border: none;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    background-color: #FCA84C;
-    color: #000000;
-    cursor: pointer;
-    margin-right: 10px;
-}
-.limpar {
-    padding: 8px;
-    border-radius: 3px;
-    border-color: #C5C3C3;
-    border: none;
-    border-radius: 4px;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    background-color: none;
-    color: #000000;
-    cursor: pointer;
-}
-.novo-calculo, a {
-    padding: 8px;
-    width: 100px;
-    border-radius: 4px;
-    border: none;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    background-color: #FCA84C;
-    color: #000000;
-    cursor: pointer;
-    margin-right: 10px;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
-.container-title-results {
-    width: 100%;
-    height:100px;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-    padding: 30px;
-    
-}
-
-.title-results-area {
-    display: flex;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
+.label-form,
 .label-form-results {
     display: flex;
     margin-bottom: 10px;
     margin-top: 20px;
     font-size: 20px;
-    font-family: 'Poppins', sans-serif;
+}
+
+.label-form-results {
     color: #FFFFFF;
 }
 
+.input-form,
 .input-form-results {
     height: 20px;
     border-bottom-color: #C5C3C3;
@@ -172,8 +96,34 @@ span {
     padding: 5px;
     padding-left: 8px;
     font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    outline: 0;
+    outline: 0;   
+}
+
+.input-form-results {
     background-color: #000000;
     color: #FFFFFF;   
+}
+
+.calcular,
+.limpar,
+.novo-calculo {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #FCA84C;
+    color: #000000;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.novo-calculo, a {
+    width: 100px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.limpar {
+    background-color: #C5C3C3;
 }

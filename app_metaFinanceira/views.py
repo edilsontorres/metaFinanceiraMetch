@@ -22,7 +22,7 @@ def formatarEntradas(n):
     return resultadoFormatado
 
 def formatarSaidas(n):
-    numero = f'{n:_.2f}'
+    numero = f'R${n:_.2f}'
     resultado = numero.replace('.', ',').replace('_', '.')
     return resultado
 
