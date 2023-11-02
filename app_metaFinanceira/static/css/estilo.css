@@ -123,7 +123,7 @@ span {
     background-color: #C5C3C3;
 }
 
-
+/* Configurações de responsividade */
 @media (max-width: 900px){
     .container {
         display:flex;

@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="static/css/estilo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500&display=swap"
+    rel="stylesheet">
   <title>Meta Financeira</title>
 </head>
 
@@ -23,7 +24,7 @@
       </div>
 
       <div class="form-area">
-        <form  class="form" method="post" action="{% url 'calcular' %}">
+        <form class="form" method="post" action="{% url 'calcular' %}">
           {% csrf_token %}
           <div>
             <label class="label-form" for="objetivo">Qual é o seu objetivo?</label>
@@ -42,17 +43,16 @@
           </div>
         </form>
       </div>
-
     </section>
-  
+
     <section class="container-results">
       <div class="container-title-results">
         <div class="title-results-area">
           <h2>Resultado:</h2>
-        </div> 
+        </div>
       </div>
       <div class="form-area">
-        <form  class="form" method="post" action="{% url 'calcular' %}">
+        <form class="form" method="post" action="{% url 'calcular' %}">
           {% csrf_token %}
           <div>
             <label class="label-form-results" for="objetivo">Valor Final:</label>
@@ -72,11 +72,11 @@
       </div>
     </section>
   </div>
-  
+
   <script src="{% static 'js/formValidation.js' %}"></script>
   <script src="{% static 'js/limparCampos.js' %}"></script>
-  <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
-  <script src="{% static 'jquery.maskMoney.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery.maskMoney.min.js' %}"></script>
   <script>
     $(function () {
       $("#meta").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true });
@@ -84,4 +84,5 @@
     })
   </script>
 </body>
+
 </html>
