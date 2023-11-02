@@ -3,96 +3,76 @@
 <html lang="pt-br">
 
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/estilo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500&display=swap" rel="stylesheet">
   <title>Meta Financeira</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light" style="padding-left: 10px;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/" style="font-size: 20px;">
-        <i class="bi bi-calculator fs-1"></i>
-        Meta Financeira
-      </a>
-    </div>
-  </nav>
 
-  <section>
-    <div class="container-fluid col-md-10">
-      <div class="offset-md-3">
-        <h1>Calculadora Meta Financeira Match!</h1>
-      </div>
-    </div>
-
-    <div class="container" name="formulario_metas">
-      <form method="post" action="{% url 'calcular' %}" class="needs-validation" novalidate>
-        {% csrf_token %}
-        <div class="col-md-4 offset-md-3">
-          <label for="objetivo" class="form-label">Qual é o seu objetivo?</label>
-          <input type="text" class="form-control" name="objetivo" id="objetivo" required>
-          <div class="invalid-feedback">
-            Informe seu objetivo
-          </div>
-        </div>
-        <div class="col-md-4 offset-md-3">
-          <label for="meta" class="form-label">Valor final?</label>
-          <input type="text" class="form-control" name="meta" id="meta" required>
-          <div class="invalid-feedback">
-            Informe o valor final
-          </div>
-        </div>
-        <div class="col-md-4 offset-md-3">
-          <label for="valorMensal" class="form-label">Valor mensal?</label>
-          <input type="text" class="form-control" name="valorMensal" id="valorMensal" required>
-          <div class="invalid-feedback">
-            Informe quanto você pode poupar por mês
-          </div>
-          <br />
-          <button type="submit" class="btn btn-primary">Calcular</button>
-          <button type="button" class="btn btn-secondary" onclick="limparForm()">Limpar</button>
-        </div>
-      </form>
-    </div>
-  </section>
-  <br />
-  {% if resultado %}
   <div class="container">
-    <div class="col-4 offset-md-3">
-      <h2>Resultado:</h2><br />
-      <table class="table table-bordered table-striped table-hover">
-        <thead>
-          <tr class="table-dark">
-            <th>Descrição</th>
-            <th>Valores</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Objetivo Final</td>
-            <td>R${{ meta }}</td>
-          </tr>
-          <tr>
-            <td>Tempo estimado</td>
-            <td>{{ resultado }}</td>
-          </tr>
-          <tr>
-            <td>Valor mensal</td>
-            <td>R${{ valorMensal }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <a href="/" class="btn btn-success">Novo cálculo</a>
-    </div>
-  </div>
-  {% endif %}
+    <section class="container-form">
+      <div class="container-title-form">
+        <div class="title-form-area">
+          <h1>Calculadora Meta Financeira <span>Match!</span></h1>
+        </div>
+      </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+      <div class="form-area">
+        <form  class="form" method="post" action="{% url 'calcular' %}">
+          {% csrf_token %}
+          <div>
+            <label class="label-form" for="objetivo">Qual é o seu objetivo?</label>
+            <input class="input-form" type="text" name="objetivo" id="objetivo" required>
+          </div>
+          <div>
+            <label class="label-form" for="meta">Valor final?</label>
+            <input class="input-form" type="text" name="meta" id="meta" required>
+          </div>
+          <div>
+            <label class="label-form" for="valorMensal">Valor mensal?</label>
+            <input class="input-form" type="text" name="valorMensal" id="valorMensal" required>
+            <br /><br />
+            <button class="calcular" type="submit">Calcular</button>
+            <button class="limpar" type="button" onclick="limparForm()">Limpar</button>
+          </div>
+        </form>
+      </div>
+
+    </section>
+    <br />
+    <section class="container-results">
+      <div class="container-title-results">
+        <div class="title-results-area">
+          <h2>Resultado:</h2>
+        </div> 
+      </div>
+      <div class="form-area">
+        <form  class="form" method="post" action="{% url 'calcular' %}">
+          {% csrf_token %}
+          <div>
+            <label class="label-form-results" for="objetivo">Valor Final:</label>
+            <input class="input-form-results" value="R${{ meta }}" type="text" name="objetivo" id="objetivo" disabled>
+          </div>
+          <div>
+            <label class="label-form-results" for="meta">Valor mensal:</label>
+            <input class="input-form-results" value="R${{ valorMensal }}" type="text" name="meta" id="meta" disabled>
+          </div>
+          <div>
+            <label class="label-form-results" for="valorMensal">Tempo estimado:</label>
+            <input class="input-form-results" value="{{ resultado }}" type="text" name="valorMensal" id="valorMensal" disabled>
+            <br /><br /><br />
+            <a href="/" class="novo-calculo">Novo cálculo</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+  
   <script src="{% static 'js/formValidation.js' %}"></script>
   <script src="{% static 'js/limparCampos.js' %}"></script>
   <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
@@ -104,5 +84,4 @@
     })
   </script>
 </body>
-
 </html>
