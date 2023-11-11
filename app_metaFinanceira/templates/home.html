@@ -52,8 +52,7 @@
         </div>
       </div>
       <div class="form-area">
-        <form class="form" method="post" action="{% url 'calcular' %}">
-          {% csrf_token %}
+        <form class="form">
           <div>
             <label class="label-form-results" for="objetivo">Valor Final:</label>
             <input class="input-form-results" value="{{meta}}" type="text" name="objetivo" disabled>

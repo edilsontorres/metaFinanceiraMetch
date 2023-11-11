@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return render(request, 'home.html')
 
+@csrf_exempt
 def calcular(request):
     n1 = request.POST.get('meta')
     meta = formatarEntradas(n1)
