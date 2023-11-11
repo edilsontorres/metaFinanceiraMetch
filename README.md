@@ -13,6 +13,7 @@
 1. [Django](https://docs.djangoproject.com/en/4.2/)
 2. [HTML]()
 3. [CSS]()
+4. [JavaScript]()
 
 ## Funcionalidades do projeto
 - [x] Calcula o tempo nescessário para atingir a meta estipulada
